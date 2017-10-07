@@ -11,40 +11,70 @@
     firebase.initializeApp(config);
     var database = firebase.database();
 
-$(document).ready(function() {
-    $('[data-toggle=offcanvas]').click(function() {
-        $('.row-offcanvas').toggleClass('active');
+    var view = 'articleList'
+
+    $(document).ready(function() {
+        $('[data-toggle=offcanvas]').click(function() {
+            $('.row-offcanvas').toggleClass('active');
+
+        });
+
+        function addArticle(article) {
+            database.ref('articles').push(article);
+        }
+
+        function displayArticleList() {
+            database.ref('articles').once("value", function(articlesSnapshot) {
+                var listGroup = $('<div class="list-group">')
+                articlesSnapshot.forEach(function(childSnapshot) {
+                    // console.log(childSnapshot.val())
+                    // console.log(childSnapshot.key)
+
+                    var content = childSnapshot.val().content;
+                    splitContent = content.split(".")[0];
+                    console.log(splitContent);
+                    var listGroupItem = $('<div class="list-group-item">')
+                    listGroupItem.attr('data-articleId', childSnapshot.key)
+                    var title = $('<p>')
+                    title.html(childSnapshot.val().title)
+                    var contentDate = $('<p>')
+                    contentDate.html(`<small>${childSnapshot.val().date}</small>`)
+                    var contentText = $('<p>')
+                    contentText.html(`${splitContent}...`)
+
+                    listGroupItem.append(title).append(contentDate).append(contentText)
+                    listGroup.append(listGroupItem)
+                })
+
+                $('#content').html(listGroup)
+            })
+        }
+
+        displayArticleList()
+
+        function displayArticle(articleId) {
+            database.ref(`articles/${articleId}`).once('value', function(snapshot) {
+                var article = $('<div>')
+                var button = $('<button>')
+                button.html('Back')
+                button.click(function(){
+                    displayArticleList()
+                })
+                article.append(button)
+                article.append(`<pre>${JSON.stringify(snapshot.val(), null, 2)}</pre>`)
+
+
+                $('#content').html(article)
+            })
+
+        }
+
+
+        $('#content').on("click", ".list-group-item", function() {
+            var articleId = $(this).attr('data-articleId')
+            view = "fullArticle"
+            displayArticle(articleId);
+
+        });
 
     });
-
-    function addArticle(article) {
-        database.ref('articles').push(article);
-    }
-
-    var articlesArr = [];
-    database.ref('articles').on("value", function(snapshot) {
-        snapshot.forEach(function(childSnapshot) {
-            console.log(childSnapshot.val())
-            console.log(childSnapshot.key)
-            articlesArr.push(childSnapshot.val());
-
-            $(".list-group").append("<div class='list-group-item list-group-item-action flex-column align-items-start'>" +
-                childSnapshot.val().title +
-                "<small>" + childSnapshot.val().date + "</small>" +
-                "<p>" + childSnapshot.val().content + "</p>" +
-                " </div>");
-        })
-    })
-
-    // function displayArticle(article) {
-        
-          
-    // }
-
-
-    // $(".list-group-item").click(function() {
-    // displayArticle();
-    // }
-
-
-});
