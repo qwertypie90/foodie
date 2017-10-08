@@ -30,19 +30,27 @@
                     // console.log(childSnapshot.val())
                     // console.log(childSnapshot.key)
 
+                    //Show only the first sentence of "Content"
                     var content = childSnapshot.val().content;
                     splitContent = content.split(".")[0];
                     console.log(splitContent);
-                    var listGroupItem = $('<div class="list-group-item">')
-                    listGroupItem.attr('data-articleId', childSnapshot.key)
-                    var title = $('<p>')
-                    title.html(childSnapshot.val().title)
-                    var contentDate = $('<p>')
-                    contentDate.html(`<small>${childSnapshot.val().date}</small>`)
-                    var contentText = $('<p>')
-                    contentText.html(`${splitContent}...`)
 
-                    listGroupItem.append(title).append(contentDate).append(contentText)
+                    var listGroupItem = $('<button class="list-group-item">')
+                    listGroupItem.attr('data-articleId', childSnapshot.key)
+
+                    var previewTitle = $('<h3>')
+                    previewTitle.html(childSnapshot.val().title)
+
+                    var previewAuthor = $('<p>')
+                    previewAuthor.html(childSnapshot.val().author)
+
+                    var previewDate = $('<p>')
+                    previewDate.html(`<small>${childSnapshot.val().date}</small>`)
+
+                    var previewText = $('<p>')
+                    previewText.html(`${splitContent}...`)
+
+                    listGroupItem.append(previewTitle).append(previewAuthor).append(previewDate).append(previewText)
                     listGroup.append(listGroupItem)
                 })
 
@@ -55,20 +63,32 @@
         function displayArticle(articleId) {
             database.ref(`articles/${articleId}`).once('value', function(snapshot) {
                 var article = $('<div>')
-                var button = $('<button>')
+                var button = $('<button class="btn btn-outline-info">')
                 button.html('Back')
-                button.click(function(){
+                button.click(function() {
                     displayArticleList()
                 })
-                article.append(button)
-                article.append(`<pre>${JSON.stringify(snapshot.val(), null, 2)}</pre>`)
 
+                var articleTitle = $('<h3>')
+                articleTitle.html(snapshot.val().title)
+
+                var articleAuthor = $('<p>')
+                articleAuthor.html(snapshot.val().author)
+
+                var articleDate = $('<p>')
+                articleDate.html(`<small>${snapshot.val().date}</small>`)
+
+                var articleText = $('<p>')
+                articleText.html(snapshot.val().content)
+
+                article.append(button)
+                // article.append(`<pre>${JSON.stringify(snapshot.val(), null, 2)}</pre>`)
+                article.append(articleTitle).append(articleAuthor).append(articleDate).append(articleText)
 
                 $('#content').html(article)
             })
 
         }
-
 
         $('#content').on("click", ".list-group-item", function() {
             var articleId = $(this).attr('data-articleId')
