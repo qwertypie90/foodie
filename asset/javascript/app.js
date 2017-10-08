@@ -32,7 +32,7 @@
 
                     var content = childSnapshot.val().content;
                     splitContent = content.split(".")[0];
-                    console.log(splitContent);
+                    // console.log(splitContent);
                     var listGroupItem = $('<div class="list-group-item">')
                     listGroupItem.attr('data-articleId', childSnapshot.key)
                     var title = $('<p>')
