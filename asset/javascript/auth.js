@@ -22,6 +22,13 @@
       $('#sign-in').hide()
       $('#sign-out').show()
       $('#current-user').html(user.displayName)
+      var imageURL = user.photoURL       
+      $('#current-user').prepend($('<img>',{id:'profilePic', src: imageURL}))
+        
+     
+      console.log(imageURL)
+
+
     } else {
       $('#sign-in').show()
       $('#sign-out').hide()
