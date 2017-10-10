@@ -63,9 +63,9 @@
         function displayArticle(articleId) {
             database.ref(`articles/${articleId}`).once('value', function(snapshot) {
                 var article = $('<div>')
-                var button = $('<button class="btn btn-outline-info">')
-                button.html('Back')
-                button.click(function() {
+                var buttonBack = $('<button class="btn btn-outline-info">')
+                buttonBack.html('Back')
+                buttonBack.click(function() {
                     displayArticleList()
                 })
 
@@ -81,7 +81,7 @@
                 var articleText = $('<p>')
                 articleText.html(snapshot.val().content)
 
-                article.append(button)
+                article.append(buttonBack)
                 // article.append(`<pre>${JSON.stringify(snapshot.val(), null, 2)}</pre>`)
                 article.append(articleTitle).append(articleAuthor).append(articleDate).append(articleText)
 
