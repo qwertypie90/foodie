@@ -60,9 +60,31 @@
 
         displayArticleList()
 
+        // third function
+        function search(query, cb) {
+            $.ajax({
+                cache: false,
+                data: $.extend({
+                    key: 'AIzaSyCrAhV6_zQqKuURLfhF_xcXAhY73ydW2Ug',
+                    q: query,
+                    part: 'snippet',
+                    type: 'video'
+                }, { maxResults: 5, pageToken: $("#pageToken").val() }),
+                dataType: 'json',
+                type: 'GET',
+                timeout: 5000,
+                url: 'https://www.googleapis.com/youtube/v3/search'
+            }).done(function(data) {
+
+                cb(data.items)
+            })
+        }
+
+
         function displayArticle(articleId) {
             database.ref(`articles/${articleId}`).once('value', function(snapshot) {
                 var article = $('<div>')
+
                 var buttonBack = $('<button class="btn btn-outline-info">')
                 buttonBack.html('Back')
                 buttonBack.click(function() {
@@ -81,12 +103,66 @@
                 var articleText = $('<p>')
                 articleText.html(snapshot.val().content)
 
+
+                var gallery = $('<div class="vids" style="background-color:red">')
+
+
                 article.append(buttonBack)
-                // article.append(`<pre>${JSON.stringify(snapshot.val(), null, 2)}</pre>`)
                 article.append(articleTitle).append(articleAuthor).append(articleDate).append(articleText)
 
                 $('#content').html(article)
+                article.append(gallery)
+
+                search(snapshot.val().title, function(data) {
+                    console.log(data)
+
+                    //loop through the videos under the article
+                    for (var i = 0; i < data.length; i++) {
+                        console.log(data[i].snippet.title)
+
+                        var vidImage = $("<img>");
+                        vidImage.addClass("videoPic");
+                        vidImage.attr("src", data[i].snippet.thumbnails.default.url);
+                        // console.log(results.items[i].snippet.title);
+                        var results = data[i].snippet.title;
+                        var id = data[i].id.videoId;
+                        var URL = "https://www.youtube.com/watch?v=" + id
+                        var vidTitle = $("<p>").text("Title: " + data[i].snippet.title);
+
+                        var videos = $('.vids')
+                        videos.append(vidImage)
+                        videos.append(vidTitle)
+
+                        var videoPic = $('.videoPic')
+                        videoPic.on("click", function () {
+                            event.preventDefault();
+                            window.open(URL);
+                        })
+
+
+                        // // $('.vids').append(vidImage);
+                        // $('.vids').append(P);
+                        // $(".videoPic").on("click", function() {
+                        //     event.preventDefault();
+                        //     window.open(URL);
+                        // })
+                        // Add Comment Collapse
+
+
+
+
+
+
+                    }
+
+                    console.log(data[0].snippet.title)
+                })
+
+
+
+
             })
+
 
         }
 
@@ -94,6 +170,7 @@
             var articleId = $(this).attr('data-articleId')
             view = "fullArticle"
             displayArticle(articleId);
+            var title = $(this).attr('data-articleId')
 
         });
 
