@@ -44,6 +44,10 @@ a, a:hover, a:focus {
   transition: all 0.3s;
 }
 
+img {
+  margin: 10px;
+}
+
 #sidebar-offcanvas {
   background-color: #ddd;
   height: 100%;
