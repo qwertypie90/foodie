@@ -77,7 +77,11 @@ a, a:hover, a:focus {
   overflow: scroll;
   padding-right: 40px;
 }
+#profilePic{
 
+     width: 60px;
+    height: auto;
+}
 
 
 @media screen and (min-width: 768px) {
