@@ -63,3 +63,89 @@
 [info] i  hosting: Serving hosting files from: /
 [info] +  hosting: Local server: http://localhost:5000
 
+[debug] [2017-10-10T00:42:34.868Z] ----------------------------------------------------------------------
+[debug] [2017-10-10T00:42:34.870Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Jaffa\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] [2017-10-10T00:42:34.871Z] CLI Version:   3.13.1
+[debug] [2017-10-10T00:42:34.871Z] Platform:      win32
+[debug] [2017-10-10T00:42:34.871Z] Node Version:  v6.11.1
+[debug] [2017-10-10T00:42:34.871Z] Time:          Mon Oct 09 2017 17:42:34 GMT-0700 (Pacific Daylight Time)
+[debug] [2017-10-10T00:42:34.872Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-10-10T00:42:34.883Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-10-10T00:42:34.884Z] > authorizing via signed-in user
+[debug] [2017-10-10T00:42:34.886Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/nadir-37f82  
+ Mon Oct 09 2017 17:42:34 GMT-0700 (Pacific Daylight Time)
+[debug] [2017-10-10T00:42:35.220Z] <<< HTTP RESPONSE 200
+[debug] [2017-10-10T00:42:35.221Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/nadir-37f82/tokens  
+ Mon Oct 09 2017 17:42:35 GMT-0700 (Pacific Daylight Time)
+[debug] [2017-10-10T00:42:35.607Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\Jaffa\Desktop\foodie'...
+[info] 
+[debug] [2017-10-10T00:42:35.611Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/nadir-37f82  
+ Mon Oct 09 2017 17:42:35 GMT-0700 (Pacific Daylight Time)
+[debug] [2017-10-10T00:42:36.007Z] <<< HTTP RESPONSE 200
+[debug] [2017-10-10T00:42:36.007Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/78288137533/clients/_:getWebAppConfig  
+ Mon Oct 09 2017 17:42:36 GMT-0700 (Pacific Daylight Time)
+[debug] [2017-10-10T00:42:36.269Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: /
+[info] +  hosting: Local server: http://localhost:5000
+
+[info] Shutting down...
+[debug] [2017-10-10T00:51:25.178Z] ----------------------------------------------------------------------
+[debug] [2017-10-10T00:51:25.180Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Jaffa\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] [2017-10-10T00:51:25.181Z] CLI Version:   3.13.1
+[debug] [2017-10-10T00:51:25.181Z] Platform:      win32
+[debug] [2017-10-10T00:51:25.181Z] Node Version:  v6.11.1
+[debug] [2017-10-10T00:51:25.181Z] Time:          Mon Oct 09 2017 17:51:25 GMT-0700 (Pacific Daylight Time)
+[debug] [2017-10-10T00:51:25.181Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-10-10T00:51:25.193Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-10-10T00:51:25.193Z] > authorizing via signed-in user
+[debug] [2017-10-10T00:51:25.195Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/nadir-37f82  
+ Mon Oct 09 2017 17:51:25 GMT-0700 (Pacific Daylight Time)
+[debug] [2017-10-10T00:51:25.605Z] <<< HTTP RESPONSE 200
+[debug] [2017-10-10T00:51:25.606Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/nadir-37f82/tokens  
+ Mon Oct 09 2017 17:51:25 GMT-0700 (Pacific Daylight Time)
+[debug] [2017-10-10T00:51:25.962Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\Jaffa\Desktop\foodie'...
+[info] 
+[debug] [2017-10-10T00:51:25.965Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/nadir-37f82  
+ Mon Oct 09 2017 17:51:25 GMT-0700 (Pacific Daylight Time)
+[debug] [2017-10-10T00:51:26.277Z] <<< HTTP RESPONSE 200
+[debug] [2017-10-10T00:51:26.277Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/78288137533/clients/_:getWebAppConfig  
+ Mon Oct 09 2017 17:51:26 GMT-0700 (Pacific Daylight Time)
+[debug] [2017-10-10T00:51:26.589Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: /
+[info] +  hosting: Local server: http://localhost:5000
+
+[info] Shutting down...
+[debug] [2017-10-10T00:54:34.861Z] ----------------------------------------------------------------------
+[debug] [2017-10-10T00:54:34.863Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Jaffa\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] [2017-10-10T00:54:34.864Z] CLI Version:   3.13.1
+[debug] [2017-10-10T00:54:34.864Z] Platform:      win32
+[debug] [2017-10-10T00:54:34.864Z] Node Version:  v6.11.1
+[debug] [2017-10-10T00:54:34.864Z] Time:          Mon Oct 09 2017 17:54:34 GMT-0700 (Pacific Daylight Time)
+[debug] [2017-10-10T00:54:34.864Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-10-10T00:54:34.874Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-10-10T00:54:34.875Z] > authorizing via signed-in user
+[debug] [2017-10-10T00:54:34.876Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/nadir-37f82  
+ Mon Oct 09 2017 17:54:34 GMT-0700 (Pacific Daylight Time)
+[debug] [2017-10-10T00:54:35.405Z] <<< HTTP RESPONSE 200
+[debug] [2017-10-10T00:54:35.406Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/nadir-37f82/tokens  
+ Mon Oct 09 2017 17:54:35 GMT-0700 (Pacific Daylight Time)
+[debug] [2017-10-10T00:54:35.772Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\Jaffa\Desktop\foodie'...
+[info] 
+[debug] [2017-10-10T00:54:35.776Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/nadir-37f82  
+ Mon Oct 09 2017 17:54:35 GMT-0700 (Pacific Daylight Time)
+[debug] [2017-10-10T00:54:36.146Z] <<< HTTP RESPONSE 200
+[debug] [2017-10-10T00:54:36.146Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/78288137533/clients/_:getWebAppConfig  
+ Mon Oct 09 2017 17:54:36 GMT-0700 (Pacific Daylight Time)
+[debug] [2017-10-10T00:54:36.458Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: /
+[info] +  hosting: Local server: http://localhost:5000
+
