@@ -34,7 +34,7 @@
                     var content = childSnapshot.val().content;
                     splitContent = content.split(".")[0];
 
-                    var listGroupItem = $('<div class="list-group-item">')
+                    var listGroupItem = $('<button class="list-group-item">')
 
                     listGroupItem.attr('data-articleId', childSnapshot.key)
 
