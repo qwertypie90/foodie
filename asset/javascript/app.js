@@ -1,108 +1,100 @@
-    // Initialize Firebase
+ // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyAF-MUSzRXgnxDr9-vFsiGvk215i-_CJ1U",
+        authDomain: "nadir-37f82.firebaseapp.com",
+        databaseURL: "https://nadir-37f82.firebaseio.com",
+        projectId: "nadir-37f82",
+        storageBucket: "nadir-37f82.appspot.com",
+        messagingSenderId: "78288137533"
+    };
 
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyAF-MUSzRXgnxDr9-vFsiGvk215i-_CJ1U",
-    authDomain: "nadir-37f82.firebaseapp.com",
-    databaseURL: "https://nadir-37f82.firebaseio.com",
-    projectId: "nadir-37f82",
-    storageBucket: "nadir-37f82.appspot.com",
-    messagingSenderId: "78288137533"
-  };
-  firebase.initializeApp(config);
-
-
+    firebase.initializeApp(config);
     var database = firebase.database();
-    $(document).ready(function () {
-      var provider = new firebase.auth.GoogleAuthProvider();
-      provider.addScope('profile');
-      provider.addScope('email');
 
+    var view = 'articleList'
 
-      firebase.auth().onAuthStateChanged(function (user) {
-        window.user = user
-        $('#current-user').html(window.user.displayName)
-        checkAuth()
-      });
+    $(document).ready(function() {
+        $('[data-toggle=offcanvas]').click(function() {
+            $('.row-offcanvas').toggleClass('active');
 
+        });
 
-      $('#sign-in').click(function () {
-        firebase.auth().signInWithPopup(provider).then(function (result) {
-          // This gives you a Google Access Token.
+        function addArticle(article) {
+            database.ref('articles').push(article);
+        }
 
-          window.user = result
-          console.log(result)
+        function displayArticleList() {
+            database.ref('articles').once("value", function(articlesSnapshot) {
+                var listGroup = $('<div class="list-group">')
+                articlesSnapshot.forEach(function(childSnapshot) {
+                    // console.log(childSnapshot.val())
+                    // console.log(childSnapshot.key)
 
+                    //Show only the first sentence of "Content"
+                    var content = childSnapshot.val().content;
+                    splitContent = content.split(".")[0];
+                    console.log(splitContent);
 
-          checkAuth()
+                    var listGroupItem = $('<button class="list-group-item">')
+                    listGroupItem.attr('data-articleId', childSnapshot.key)
 
-        }).catch(function (error) {
-          console.log(error)
-        })
-      })
+                    var previewTitle = $('<h3>')
+                    previewTitle.html(childSnapshot.val().title)
 
+                    var previewAuthor = $('<p>')
+                    previewAuthor.html(childSnapshot.val().author)
 
-      $('#sign-out').click(function () {
+                    var previewDate = $('<p>')
+                    previewDate.html(`<small>${childSnapshot.val().date}</small>`)
 
-        firebase.auth().signOut()
-        checkAuth()
+                    var previewText = $('<p>')
+                    previewText.html(`${splitContent}...`)
 
+                    listGroupItem.append(previewTitle).append(previewAuthor).append(previewDate).append(previewText)
+                    listGroup.append(listGroupItem)
+                })
 
-      })
+                $('#content').html(listGroup)
+            })
+        }
 
+        displayArticleList()
 
-      function checkAuth() {
-        console.log(window.user)
-        if (window.user) {
+        function displayArticle(articleId) {
+            database.ref(`articles/${articleId}`).once('value', function(snapshot) {
+                var article = $('<div>')
+                var buttonBack = $('<button class="btn btn-outline-info">')
+                buttonBack.html('Back')
+                buttonBack.click(function() {
+                    displayArticleList()
+                })
 
+                var articleTitle = $('<h3>')
+                articleTitle.html(snapshot.val().title)
 
-          $('#sign-in').hide()
-          $('#sign-out').show()
+                var articleAuthor = $('<p>')
+                articleAuthor.html(snapshot.val().author)
 
-        } else {
-          $('#sign-in').show()
-          $('#sign-out').hide()
+                var articleDate = $('<p>')
+                articleDate.html(`<small>${snapshot.val().date}</small>`)
 
+                var articleText = $('<p>')
+                articleText.html(snapshot.val().content)
+
+                article.append(buttonBack)
+                // article.append(`<pre>${JSON.stringify(snapshot.val(), null, 2)}</pre>`)
+                article.append(articleTitle).append(articleAuthor).append(articleDate).append(articleText)
+
+                $('#content').html(article)
+            })
 
         }
 
-      }
+        $('#content').on("click", ".list-group-item", function() {
+            var articleId = $(this).attr('data-articleId')
+            view = "fullArticle"
+            displayArticle(articleId);
 
-      checkAuth()
-
-      $('[data-toggle=offcanvas]').click(function () {
-        $('.row-offcanvas').toggleClass('active');
-
-      });
-
-      function addArticle(article) {
-        database.ref('articles').push(article);
-      }
-
-      var articlesArr = [];
-      database.ref('articles').on("value", function (snapshot) {
-        snapshot.forEach(function (childSnapshot) {
-          console.log(childSnapshot.val())
-          console.log(childSnapshot.key)
-          articlesArr.push(childSnapshot.val());
-
-          $(".list-group").append("<div class='list-group-item list-group-item-action flex-column align-items-start'>" +
-            childSnapshot.val().title +
-            "<small>" + childSnapshot.val().date + "</small>" +
-            "<p>" + childSnapshot.val().content + "</p>" +
-            " </div>");
-        })
-      })
-
-      // function displayArticle(article) {
-
-
-      // }
-
-
-      // $(".list-group-item").click(function() {
-      // displayArticle();
-      // }
-
+        });
 
     });
