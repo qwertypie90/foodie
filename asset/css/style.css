@@ -75,6 +75,7 @@ a, a:hover, a:focus {
   height: 100%;
   width: calc(100% - 220px);
   overflow: scroll;
+  padding-right: 40px;
 }
 #profilePic{
 
