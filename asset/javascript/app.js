@@ -12,12 +12,14 @@
  var database = firebase.database();
 
  var view = 'articleList'
-
+ 
  $(document).ready(function() {
      $('[data-toggle=offcanvas]').click(function() {
          $('.row-offcanvas').toggleClass('active');
 
      });
+
+
 
      function addArticle(article) {
          database.ref('articles').push(article);
@@ -33,7 +35,7 @@
                  //Show only the first sentence of "Content"
                  var content = childSnapshot.val().content;
                  splitContent = content.split(".")[0];
-                 console.log(splitContent);
+                 // console.log(splitContent);
 
                  var listGroupItem = $('<button class="list-group-item">')
                  listGroupItem.attr('data-articleId', childSnapshot.key)
@@ -60,7 +62,7 @@
 
      displayArticleList()
 
-     // third function
+     // youtube API function
      function search(query, cb) {
          $.ajax({
              cache: false,
@@ -69,7 +71,7 @@
                  q: query,
                  part: 'snippet',
                  type: 'video'
-             }, { maxResults: 5, pageToken: $("#pageToken").val() }),
+             }, { maxResults: 5 }),
              dataType: 'json',
              type: 'GET',
              timeout: 5000,
@@ -113,11 +115,11 @@
              article.append(gallery)
 
              search(snapshot.val().title, function(data) {
-                 console.log(data)
+                 // console.log(data)
 
                  //loop through the videos under the article
                  for (var i = 0; i < data.length; i++) {
-                     console.log(data[i].snippet.title)
+                     // console.log(data[i].snippet.title)
 
                      var vidImage = $("<img>");
                      vidImage.addClass("videoPic");
@@ -138,7 +140,7 @@
                          window.open(URL);
                      })
                  }
-                 console.log(data[0].snippet.title)
+                 // console.log(data[0].snippet.title)
 
              })
 
@@ -153,4 +155,41 @@
          var title = $(this).attr('data-articleId')
 
      });
+
+     // ADDING ARTICLE TO FIREBASE
+     $(".submit").on("click", function(event) {
+         console.log("button pressed");
+         event.preventDefault();
+         var nTitle = $("#example-text-input").val().trim();
+         // console.log(nTitle);
+
+         // Adding celeb from the textbox to our array
+         var nAuthor = $("#example-search-input").val().trim();
+         // console.log(nAuthor);
+         // Adding celeb from the textbox to our array
+         var nMoment = moment().format('MMMM Do YYYY, h:mm:ss a')
+         // console.log(nMoment);
+         // Adding celeb from the textbox to our array
+         var nContent = $("#exampleTextarea").val().trim();
+         // console.log(nContent);
+
+         var article = {
+             title: nTitle,
+             author: nAuthor,
+             date: nMoment,
+             content: nContent
+         };
+
+         console.log(article);
+
+         $("#example-text-input").val("");
+         $("#exampleTextarea").val("");
+
+         function addArticle() {
+             database.ref('/articles').push(article);
+         }
+
+         addArticle();
+     })
+
  });
