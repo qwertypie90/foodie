@@ -151,4 +151,46 @@
 
         });
 
+        // ADDING ARTICLE TO FIREBASE
+    $(".submit").on("click", function(event) {
+    console.log("button pressed");
+    event.preventDefault();
+    var nTitle = $("#example-text-input").val().trim();
+    // console.log(nTitle);
+
+    // Adding celeb from the textbox to our array
+    var nAuthor = $("#example-search-input").val().trim();
+    // console.log(nAuthor);
+    // Adding celeb from the textbox to our array
+    var nMoment = moment().format('MMMM Do YYYY, h:mm:ss a')
+    // console.log(nMoment);
+    // Adding celeb from the textbox to our array
+    var nContent = $("#exampleTextarea").val().trim();
+    // console.log(nContent);
+
+    var article = {
+    title: nTitle,
+    author: nAuthor,
+    date: nMoment,
+    content: nContent
+    };
+    console.log(article);
+
+    function addArticle() {
+    database.ref('/articles').push(article);
+    }
+
+addArticle();
+
+    // database.ref('articles').on("value", function(snapshot) {
+    //     var articlesArr = [];
+    //     snapshot.forEach(function(childSnapshot) {
+    //         console.log(childSnapshot.val())
+    //         console.log(childSnapshot.key)
+    //         articlesArr.push(childSnapshot.val());
+    //         console.log(articlesArr);
+    // })
+    // })
+    })
+
     });
