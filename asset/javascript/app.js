@@ -12,7 +12,7 @@
  var database = firebase.database();
 
  var view = 'articleList'
- 
+
  $(document).ready(function() {
      $('[data-toggle=offcanvas]').click(function() {
          $('.row-offcanvas').toggleClass('active');
@@ -53,7 +53,7 @@
                  previewText.html(`${splitContent}...`)
 
                  listGroupItem.append(previewTitle).append(previewAuthor).append(previewDate).append(previewText)
-                 listGroup.append(listGroupItem)
+                 listGroup.prepend(listGroupItem)
              })
 
              $('#content').html(listGroup)
@@ -149,6 +149,7 @@
      }
 
      $('#content').on("click", ".list-group-item", function() {
+
          var articleId = $(this).attr('data-articleId')
          view = "fullArticle"
          displayArticle(articleId);
@@ -180,13 +181,14 @@
              content: nContent
          };
 
-         console.log(article);
+         // console.log(article);
 
          $("#example-text-input").val("");
          $("#exampleTextarea").val("");
 
          function addArticle() {
              database.ref('/articles').push(article);
+             displayArticleList();
          }
 
          addArticle();
