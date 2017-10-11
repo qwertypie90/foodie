@@ -16,55 +16,57 @@
 </head>
 
 <body>
-    <div class="row row-offcanvas row-offcanvas-left">
-        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar-offcanvas" role="navigation">
-            <nav id="sidebar">
-                <div class="sidebar-header">
-                    <h3 class="text-center">.Wiki</h3>
-                </div>
-                <ul class="list-unstyled main-menu">
-                    <li><a href="index.html">Home <span class="icon"></span></a></li>
-                    <li><a href="about.html">About <span class="icon"></span></a></li>
-                </ul>
-            </nav>
+      <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3 class="text-center">.Wiki</h3>
         </div>
-        <!-- Page Content Holder -->
-        <div id="main" class="container">
-            <div class="row">
-                <div class="col-xs-12 col-sm-12">
-                    <div id="sub-header">
-                        <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn" data-toggle="offcanvas"><a href="index.html">
+        <ul class="list-unstyled main-menu">
+            <li><a href="index.html">Home <span class="icon"></span></a></li>
+            <li><a href="about.html">About <span class="icon"></span></a></li>
+        </ul>
+    </nav>
+    <!-- Page Content Holder -->
+    <div id="main" class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12">
+                <div id="navbar-header">
+                    <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn"><a href="index.html">
                             <i class="glyphicon glyphicon-align-justify"></i>
-                            <span>Home</span></a>
-                        </button>
-                        <button type="button" id="submitA" class="btn btn-info navbar-btn" data-toggle="offcanvas"><a href="submitArticle.html">
+                            <span>Menu</span></a>
+                    </button>
+                    <button type="button" id="submitA" class="btn btn-info navbar-btn" data-toggle="offcanvas"><a href="submitArticle.html">
                             <span>Submit Your Article</span>
                         </a></button>
-                        <ul class="nav navbar-nav navbar-right">
-                            <div id='current-user'></div>
-                            <div class="btn-group">
-                                <button id="sign-in" class="btn btn-info navbar-btn">Sign-in</button>
-                                <button id="sign-out" class="btn btn-info navbar-btn">Sign-out</button>
-                            </div>
-                        </ul>
-                    </div>
+                    <ul class="nav navbar-nav navbar-right">
+                        <div id='current-user'></div>
+                        <div class="btn-group">
+                            <button id="sign-in" class="btn btn-info navbar-btn">Sign-in</button>
+                            <button id="sign-out" class="btn btn-info navbar-btn">Sign-out</button>
+                        </div>
+                    </ul>
                 </div>
             </div>
-
-            <div class="container">
-                <div class="row">
-                    <div class="text">
-                        <h2>About .Wiki</h2> Welcome to Class Wiki! This website is made for students who are taking "The Coding Bootcamp" at UCLA Extension. <br> Students can simply sign in and create an article for publication and share quick tips or tutorials about class topics, assignment, homework, etc. <br>This is a great source bank students can always go back for a reference and tutorial. <br><br> The website function is simple and straightforward. The main landing page will display a list of brief articles such as HTML, CSS, and Javascript.<br> If you want to add your resource and tips, look for the "Submit Your Article" button on the top.
-                    </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="text">
+                    <h2>About .Wiki</h2> Welcome to Class Wiki! This website is made for students who are taking "The Coding Bootcamp" at UCLA Extension.
+                    <br> Students can simply sign in and create an article for publication and share quick tips or tutorials about class topics, assignment, homework, etc.
+                    <br>This is a great source bank students can always go back for a reference and tutorial.
+                    <br>
+                    <br> The website function is simple and straightforward. The main landing page will display a list of brief articles such as HTML, CSS, and Javascript.
+                    <br> If you want to add your resource and tips, look for the "Submit Your Article" button on the top.
                 </div>
             </div>
-            <!--jquery -->
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-            <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-            <!-- javascript -->
-            <script type="text/javascript" src="asset/javascript/app.js"></script>
-            <script type="text/javascript" src="asset/javascript/auth.js"></script>
+        </div>
+    </div>
+    <!--jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- javascript -->
+    <script type="text/javascript" src="asset/javascript/app.js"></script>
+    <script type="text/javascript" src="asset/javascript/auth.js"></script>
 </body>
 
 </html>
