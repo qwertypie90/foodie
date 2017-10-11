@@ -8,9 +8,7 @@
   // };
   // firebase.initializeApp(config);
 
-
-
-  //Google Auth Provider Using a popup.
+//Google Auth Provider Using a popup.
   var provider = new firebase.auth.GoogleAuthProvider();
   provider.addScope('profile');
   provider.addScope('email');
@@ -34,6 +32,7 @@
       $('#current-user').html("")
     }
   });
+
 
 var userName;
 

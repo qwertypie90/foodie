@@ -86,6 +86,7 @@
      function displayArticle(articleId) {
          database.ref(`articles/${articleId}`).once('value', function(snapshot) {
              var article = $('<div>')
+
              var buttonBack = $('<button class="btn btn-outline-info">')
              buttonBack.html('Back')
              buttonBack.click(function() {
@@ -130,11 +131,11 @@
                      var URL = "https://www.youtube.com/watch?v=" + id
                      var vidTitle = $("<p>").text("Title: " + data[i].snippet.title);
 
-                     var videos = $('.vids')
+                     var videos = $(".vids")
                      videos.append(vidImage)
                      videos.append(vidTitle)
 
-                     var videoPic = $('.videoPic')
+                     var videoPic = $(".videoPic")
                      videoPic.on("click", function() {
                          event.preventDefault();
                          window.open(URL);
