@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Class Wiki</title>
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="asset/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <!-- Moment -->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+</head>
+
+<body>
+    <div class="row row-offcanvas row-offcanvas-left">
+        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar-offcanvas" role="navigation">
+            <nav id="sidebar">
+                <div class="sidebar-header">
+                    <h3 class="text-center">.Wiki</h3>
+                </div>
+                <ul class="list-unstyled main-menu">
+                    <li><a href="index.html">Home <span class="icon"></span></a></li>
+                    <li><a href="about.html">About <span class="icon"></span></a></li>
+                </ul>
+            </nav>
+        </div>
+        <!-- Page Content Holder -->
+        <div id="main" class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12">
+                    <div id="sub-header">
+                        <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn" data-toggle="offcanvas"><a href="index.html">
+                            <i class="glyphicon glyphicon-align-justify"></i>
+                            <span>Home</span>
+                        </button>
+                        <button type="button" id="submitA" class="btn btn-info navbar-btn" data-toggle="offcanvas"><a href="submitArticle.html">
+                            <span>Submit Your Article</span>
+                        </button>
+                        <ul class="nav navbar-nav navbar-right">
+                            <div class="btn-group">
+                                <div>
+                                    <image id='profilePic'></image>
+                                </div>
+                                <button id="sign-in" class="btn btn-info navbar-btn">Sign-in</button>
+                                <button id="sign-out" class="btn btn-info navbar-btn">Sign-out</button>
+                                <button id="register" class="btn btn-info navbar-btn">Register</button>
+                                <div id='current-user'></div>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </a>
+<div class = "container">
+<div class = "text">
+    <h2><u>Team:</u> Iris | <u>Project name:</u> .Wiki</h2>
+
+In this project, we will create a unique wikipedia site for this class, so that anyone from the class can create an article for publication and share quick tips or tutorials about class topics, assignment, homework, etc. The main goal is to help students to find information faster and have a community where everyone can participate and help each other. Also, it can be served as a source bank that a student can always go back for a reference.
+The website function is simple and straightforward. The main landing page will display a list of brief articles such as HTML, CSS, and Javascript. Students can select any of these topics to read the entire the article. 
+</div>
+ </div>
+
+    <!--jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- javascript -->
+    <script type="text/javascript" src="asset/javascript/app.js"></script>
+    <script type="text/javascript" src="asset/javascript/auth.js"></script>
+</body>
+
+</html>
