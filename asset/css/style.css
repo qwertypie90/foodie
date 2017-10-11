@@ -83,11 +83,11 @@ a:focus {
 }
 
 .btn-group {
-  padding-left: 20px;
+    padding-left: 20px;
 }
 
 #current-user {
-  display: inline-block;
+    display: inline-block;
 }
 
 
@@ -98,8 +98,21 @@ a:focus {
 }
 
 .vids {
-  float: left;
-  padding: 10px;
+    float: left;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+p.title {
+    width: 230px;
+    text-align: center;
+    font-size: 10px;
+    display: block;
+}
+
+.video-pic {
+    width: 240px;
+    margin: 2px;
 }
 
 @media screen and (min-width: 768px) {

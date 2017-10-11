@@ -122,20 +122,21 @@
                  //loop through the videos under the article
                  for (var i = 0; i < data.length; i++) {
                      // console.log(data[i].snippet.title)
-
-                     var vidImage = $('<img style="width:240px">');
+                     var vidDiv = $("<div>");
+                     var vidTitle = $('<p class="title">').text(data[i].snippet.title);
+                     // Creating and storing an image tag
+                     var vidImage = $('<img>');
                      vidImage.addClass("video-pic");
                      vidImage.attr("src", data[i].snippet.thumbnails.default.url);
                      // console.log(results.items[i].snippet.title);
                      var results = data[i].snippet.title;
                      var id = data[i].id.videoId;
                      var URL = "https://www.youtube.com/watch?v=" + id
-                     var vidTitle = $('<p style= "width: 230px">').text(data[i].snippet.title);
+                     var vidTitle = $('<p class="title">').text(data[i].snippet.title);
 
-                     var videos = $('.vids');
-
-                     videos.append(vidImage)
-                     videos.append(vidTitle)
+                     vidDiv.append(vidImage);
+                     vidDiv.append(vidTitle);
+                     $(".vids").prepend(vidDiv);
 
                      var videoPic = $(".video-pic")
                      videoPic.on("click", function() {
