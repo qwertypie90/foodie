@@ -11,7 +11,6 @@
 
 
   //Google Auth Provider Using a popup.
-
   var provider = new firebase.auth.GoogleAuthProvider();
   provider.addScope('profile');
   provider.addScope('email');
@@ -36,11 +35,17 @@
     }
   });
 
+var userName;
+
   $('#sign-in').click(function () {
     firebase.auth().signInWithPopup(provider).then(function (result) {
-      window.user = result
+      window.user = result;
       console.log(result)
-      checkAuth()
+      // lindsey here - just adding in a way to get the user's name so we can add it to the form automatically
+      console.log(result.additionalUserInfo.profile.name)
+      userName = result.additionalUserInfo.profile.name;
+      $("#example-search-input").val(userName)
+      checkAuth();
     }).catch(function (error) {
       console.log(error)
     })
