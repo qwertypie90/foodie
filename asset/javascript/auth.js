@@ -12,7 +12,7 @@
   var provider = new firebase.auth.GoogleAuthProvider();
   provider.addScope('profile');
   provider.addScope('email');
-
+var userName;
 
   firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
@@ -21,7 +21,12 @@
       $('#current-user').html(user.displayName)
       var imageURL = user.photoURL       
       $('#current-user').prepend($('<img>',{id:'profilePic', src: imageURL}))
-        
+      // console.log(CLIENT_ID.apps.googleusercontent.com)
+      console.log(user.displayName)
+      userName = user.displayName
+      $("#example-search-input").val(userName)
+      //    userName = result.additionalUserInfo.profile.name;
+      // $("#example-search-input").val(userName) 
      
       console.log(imageURL)
 
@@ -34,7 +39,7 @@
   });
 
 
-var userName;
+
 
   $('#sign-in').click(function () {
     firebase.auth().signInWithPopup(provider).then(function (result) {
