@@ -105,13 +105,14 @@
              var articleText = $('<p>')
              articleText.html(snapshot.val().content)
 
-             var gallery = $('<div class="vids" style="background-color:red">')
+             var gallery = $('<div class="vids">')
 
              article.append(buttonBack)
              // article.append(`<pre>${JSON.stringify(snapshot.val(), null, 2)}</pre>`)
              article.append(articleTitle).append(articleAuthor).append(articleDate).append(articleText)
 
              $('#content').html(article)
+             $('form').hide()
 
              article.append(gallery)
 
@@ -122,20 +123,21 @@
                  for (var i = 0; i < data.length; i++) {
                      // console.log(data[i].snippet.title)
 
-                     var vidImage = $("<img>");
-                     vidImage.addClass("videoPic");
+                     var vidImage = $('<img style="width:240px">');
+                     vidImage.addClass("video-pic");
                      vidImage.attr("src", data[i].snippet.thumbnails.default.url);
                      // console.log(results.items[i].snippet.title);
                      var results = data[i].snippet.title;
                      var id = data[i].id.videoId;
                      var URL = "https://www.youtube.com/watch?v=" + id
-                     var vidTitle = $("<p>").text("Title: " + data[i].snippet.title);
+                     var vidTitle = $('<p style= "width: 230px">').text(data[i].snippet.title);
 
-                     var videos = $(".vids")
+                     var videos = $('.vids');
+
                      videos.append(vidImage)
                      videos.append(vidTitle)
 
-                     var videoPic = $(".videoPic")
+                     var videoPic = $(".video-pic")
                      videoPic.on("click", function() {
                          event.preventDefault();
                          window.open(URL);

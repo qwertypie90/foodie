@@ -35,17 +35,18 @@
                     <div id="sub-header">
                         <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn" data-toggle="offcanvas">
                             <i class="glyphicon glyphicon-align-justify"></i>
+
                             <span>Menu</span>
+
                         </button>
+                        <button type="button" id="submitA" class="btn btn-info navbar-btn" data-toggle="offcanvas"><a href="index.html">
+                            <span>Back</span>
+                        </a></button>
                         <ul class="nav navbar-nav navbar-right">
+                            <div id='current-user'></div>
                             <div class="btn-group">
-                                <div>
-                                    <image id='profilePic'></image>
-                                </div>
                                 <button id="sign-in" class="btn btn-info navbar-btn">Sign-in</button>
                                 <button id="sign-out" class="btn btn-info navbar-btn">Sign-out</button>
-                                <button id="register" class="btn btn-info navbar-btn">Register</button>
-                                <div id='current-user'></div>
                             </div>
                         </ul>
                     </div>
@@ -53,7 +54,6 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                	<button class="btn btn-outline-info"><a href="index.html">Back</a></button>
                     <form>
                         <div class="form-group">
                             <label for="example-text-input" class="col-2 col-form-label">Title</label>
@@ -71,7 +71,7 @@
                             <label for="exampleTextarea">The Issue</label>
                             <textarea class="form-control" id="exampleTextarea" rows="6"></textarea>
                         </div>
-                        <button type="submit" class="submit">Submit</button>
+                        <button type="submit" class="btn btn-info btn-lg btn-block">Submit</button>
                     </form>
                 </div>
             </div>
@@ -89,8 +89,6 @@
     <!-- javascript -->
     <script type="text/javascript" src="asset/javascript/app.js"></script>
     <script type="text/javascript" src="asset/javascript/auth.js"></script>
-
-
-
 </body>
+
 </html>
