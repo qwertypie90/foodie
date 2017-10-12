@@ -329,3 +329,31 @@
 [info] i  hosting: Serving hosting files from: /
 [info] +  hosting: Local server: http://localhost:5000
 
+[debug] [2017-10-12T01:18:11.995Z] ----------------------------------------------------------------------
+[debug] [2017-10-12T01:18:11.997Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Jaffa\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] [2017-10-12T01:18:11.998Z] CLI Version:   3.13.1
+[debug] [2017-10-12T01:18:11.998Z] Platform:      win32
+[debug] [2017-10-12T01:18:11.998Z] Node Version:  v6.11.1
+[debug] [2017-10-12T01:18:11.998Z] Time:          Wed Oct 11 2017 18:18:11 GMT-0700 (Pacific Daylight Time)
+[debug] [2017-10-12T01:18:11.999Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-10-12T01:18:12.012Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-10-12T01:18:12.012Z] > authorizing via signed-in user
+[debug] [2017-10-12T01:18:12.015Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/nadir-37f82  
+ Wed Oct 11 2017 18:18:12 GMT-0700 (Pacific Daylight Time)
+[debug] [2017-10-12T01:18:12.367Z] <<< HTTP RESPONSE 200
+[debug] [2017-10-12T01:18:12.368Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/nadir-37f82/tokens  
+ Wed Oct 11 2017 18:18:12 GMT-0700 (Pacific Daylight Time)
+[debug] [2017-10-12T01:18:12.780Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\Jaffa\Desktop\foodie'...
+[info] 
+[debug] [2017-10-12T01:18:12.786Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/nadir-37f82  
+ Wed Oct 11 2017 18:18:12 GMT-0700 (Pacific Daylight Time)
+[debug] [2017-10-12T01:18:13.486Z] <<< HTTP RESPONSE 200
+[debug] [2017-10-12T01:18:13.487Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/78288137533/clients/_:getWebAppConfig  
+ Wed Oct 11 2017 18:18:13 GMT-0700 (Pacific Daylight Time)
+[debug] [2017-10-12T01:18:13.753Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: /
+[info] +  hosting: Local server: http://localhost:5000
+
