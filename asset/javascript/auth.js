@@ -18,6 +18,7 @@ var userName;
     if (user) {
       $('#sign-in').hide()
       $('#sign-out').show()
+      $('#submitA').show()
       $('#current-user').html(user.displayName)
       var imageURL = user.photoURL       
       $('#current-user').prepend($('<img>',{id:'profilePic', src: imageURL}))
@@ -28,12 +29,13 @@ var userName;
       //    userName = result.additionalUserInfo.profile.name;
       // $("#example-search-input").val(userName) 
      
-      console.log(imageURL)
+      
 
 
     } else {
       $('#sign-in').show()
       $('#sign-out').hide()
+      $('#submitA').hide()
       $('#current-user').html("")
     }
   });
