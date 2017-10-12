@@ -156,6 +156,12 @@
 
  });
 
+
+ //on signout redirect to home page
+ $('#sign-out').click(function(){
+   window.location.href='index.html';
+})
+
  // ADDING ARTICLE TO FIREBASE
  $(".submit").on("click", function(event) {
  console.log("button pressed");
