@@ -66,7 +66,7 @@
              q: query,
              part: 'snippet',
              type: 'video'
-         }, { maxResults: 7 }),
+         }, { maxResults: 6 }),
          dataType: 'json',
          type: 'GET',
          timeout: 5000,
