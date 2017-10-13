@@ -198,11 +198,16 @@
      })
 
 
-
      $("#sidebarCollapse").on("click", function(event) {
-         document.getElementById('sidebar').style.width = "200px";
-         // $('#main').css('background', 'black')
-
+         document.getElementById('sidebar').style.width = "30%";
+         document.getElementById('darkBackground').style.display="block";
      })
+
+     $("#darkBackground").on("click", function(event) { 
+        document.getElementById('sidebar').style.width = "0px";
+         document.getElementById('darkBackground').style.display="none";
+        console.log("hi")
+     })
+
 
  });
