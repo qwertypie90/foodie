@@ -55,7 +55,7 @@
          })
      }
 
-     displayArticleList()
+     displayArticleList();
 
      // youtube API function
      function search(query, cb) {
@@ -81,12 +81,6 @@
      function displayArticle(articleId) {
          database.ref(`articles/${articleId}`).once('value', function(snapshot) {
              var article = $('<div>')
-
-             // var buttonBack = $('<button class="btn btn-outline-info">')
-             // buttonBack.html('Back')
-             // buttonBack.click(function() {
-             //     displayArticleList()
-             // })
 
              var articleTitle = $('<h3>')
              articleTitle.html(snapshot.val().title)
@@ -158,6 +152,17 @@
          displayArticle(articleId);
          var title = $(this).attr('data-articleId')
 
+         var buttonBack = $('<button class="btn btn-info navbar-btns">')
+         buttonBack.html('Back')
+         buttonBack.click(function() {
+             displayArticleList()
+             $(this).hide();
+         })
+
+
+
+         $('#sub-header').append(buttonBack);
+         console.log("HELLO")
      });
 
      // ADDING ARTICLE TO FIREBASE
