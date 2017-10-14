@@ -155,6 +155,10 @@ screen and (max-width: 980px) {
         box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1)
     }
 
+    .btn-group {
+    padding-left: 0;
+}
+
     #left {
         float: left;
         width: 100%;
