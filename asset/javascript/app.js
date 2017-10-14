@@ -146,7 +146,7 @@
      }
 
      $('#content').on("click", ".list-group-item", function() {
-
+        $('#submitB').hide();
          var articleId = $(this).attr('data-articleId')
          view = "fullArticle"
          displayArticle(articleId);
@@ -161,7 +161,7 @@
 
 
 
-         $('#sub-header').append(buttonBack);
+         $('#left').append(buttonBack);
          console.log("HELLO")
      });
 
